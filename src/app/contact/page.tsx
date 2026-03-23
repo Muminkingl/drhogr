@@ -1,14 +1,36 @@
 "use client";
 
-import React from "react";
-import { useForm, ValidationError } from "@formspree/react";
+import React, { useState } from "react";
 import { useLanguage } from "../i18n/LanguageContext";
 import Link from "next/link";
 import Footer from "../components/MembershipsAndFooter"; 
 
 export default function ContactPage() {
   const { t, isRTL } = useLanguage();
-  const [state, handleSubmit] = useForm("maqpgkbl");
+  const [status, setStatus] = useState<"idle" | "submitting" | "succeeded" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("submitting");
+
+    const formData = new FormData(e.currentTarget);
+    formData.append("_captcha", "false"); // Disable captcha
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/contact@drhogrghareeb.org", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        setStatus("succeeded");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
 
   return (
     <div className="min-h-screen border-t-2 border-[#C9A84C] flex flex-col bg-[#0A0E1A] text-[#F0EBD8]" style={{ direction: isRTL ? "rtl" : "ltr" }}>
@@ -48,7 +70,7 @@ export default function ContactPage() {
             <div className="space-y-6 pt-6 border-t border-[rgba(201,168,76,0.15)]">
               <div>
                 <h3 className="text-[10px] tracking-widest uppercase font-mono text-[#C9A84C] mb-2">{t("contact.direct_email")}</h3>
-                <a href="mailto:contact@dr.hogrghareeb.org" className="text-lg hover:text-[#C9A84C] transition-colors">contact@dr.hogrghareeb.org</a>
+                <a href="mailto:contact@drhogrghareeb.org" className="text-lg hover:text-[#C9A84C] transition-colors">contact@drhogrghareeb.org</a>
               </div>
             </div>
           </div>
@@ -57,7 +79,7 @@ export default function ContactPage() {
           <div className="relative">
             <div className="absolute -inset-4 bg-[rgba(240,235,216,0.02)] border border-[rgba(201,168,76,0.1)] rounded-2xl -z-10" />
             
-            {state.succeeded ? (
+            {status === "succeeded" ? (
               <div className="p-12 text-center space-y-4 bg-[rgba(201,168,76,0.05)] border border-[rgba(201,168,76,0.2)] rounded-xl">
                 <div className="w-16 h-16 mx-auto bg-[#C9A84C]/20 text-[#C9A84C] rounded-full flex items-center justify-center mb-6">
                   <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -81,7 +103,6 @@ export default function ContactPage() {
                     placeholder={t("contact.email_placeholder")}
                     className="w-full bg-[rgba(10,14,26,0.6)] border border-[rgba(201,168,76,0.2)] focus:border-[#C9A84C] rounded-none px-5 py-4 text-[#F0EBD8] placeholder-[rgba(240,235,216,0.25)] outline-none transition-colors"
                   />
-                  <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-400 text-sm mt-1" />
                 </div>
 
                 <div className="space-y-3">
@@ -96,12 +117,14 @@ export default function ContactPage() {
                     placeholder={t("contact.message_placeholder")}
                     className="w-full bg-[rgba(10,14,26,0.6)] border border-[rgba(201,168,76,0.2)] focus:border-[#C9A84C] rounded-none px-5 py-4 text-[#F0EBD8] placeholder-[rgba(240,235,216,0.25)] outline-none transition-colors resize-y"
                   />
-                  <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-400 text-sm mt-1" />
                 </div>
 
+                {status === "error" && (
+                  <div className="text-red-400 text-sm text-center">Something went wrong. Please try again later.</div>
+                )}
                 <button 
                   type="submit" 
-                  disabled={state.submitting}
+                  disabled={status === "submitting"}
                   className="w-full group relative inline-flex items-center justify-center gap-3 px-8 py-5 text-sm font-bold text-[#0A0E1A] overflow-hidden disabled:opacity-70 disabled:cursor-not-allowed"
                   style={{
                     background: "linear-gradient(135deg, #C9A84C, #E8C96B)",
@@ -111,7 +134,7 @@ export default function ContactPage() {
                   }}
                 >
                   <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: "linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%)" }} />
-                  <span className="relative z-10">{state.submitting ? t("contact.submitting") : t("contact.submit_btn")}</span>
+                  <span className="relative z-10">{status === "submitting" ? t("contact.submitting") : t("contact.submit_btn")}</span>
                 </button>
               </form>
             )}
