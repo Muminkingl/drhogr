@@ -1,8 +1,8 @@
 
-### Hero section [COMPLETED]
-- Redesigned with `heroo.png` background.
-- Added social icons (Facebook, Instagram, TikTok, YouTube).
+### Redesign and Branding [COMPLETED]
+- Redesigned Hero section with `heroo.png` background.
+- Replaced logo with calligraphy image (`textH.png`) in Navbar and Footer.
 - Updated YouTube URLs to `https://www.youtube.com/@dr-hogrghareeb3887`.
-- Translated header tags and follow labels.
-- Fixed RTL overlay gradients.
-- Translated PhD tag across all languages.
+- Added Telegram and X social links to Hero and Footer.
+- Translated all header tags (including Ph.D) and social labels.
+- Fixed RTL overlay gradients and visibility.
