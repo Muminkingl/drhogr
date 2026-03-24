@@ -209,5 +209,19 @@
     "direct_email": "Direct Email",
     "office": "Office",
     "office_location": "Erbil, Kurdistan Region"
+  },
+  "news": {
+    "badge": "News Publications",
+    "title": "News &",
+    "titleAccent": "Insights",
+    "subtitle": "Latest articles, publications, and updates on comparative jurisprudence, media, and humanitarian efforts.",
+    "noPostsTitle": "No Publications Yet",
+    "noPostsSubtitle": "Check back soon for updates.",
+    "latest": "Latest",
+    "minRead": "min read",
+    "readFullStory": "Read Full Article",
+    "moreArticles": "More Publications",
+    "min": "min",
+    "readPost": "Read Article"
   }
 }

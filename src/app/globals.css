@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* ===== Custom Theme Tokens ===== */
 @theme inline {
   --color-navy-950: #060d1a;
   --color-navy-900: #0a1628;
@@ -14,6 +13,15 @@
   --color-ivory-dim: #d9d3c7;
   --color-teal-600: #1a6b5a;
   --color-teal-500: #22876f;
+
+  --color-sidebar: #0a1628;
+  --color-sidebar-foreground: #f5f0e8;
+  --color-sidebar-primary: #c9a84c;
+  --color-sidebar-primary-foreground: #060d1a;
+  --color-sidebar-accent: #162d48;
+  --color-sidebar-accent-foreground: #f5f0e8;
+  --color-sidebar-border: #1e3a5f;
+  --color-sidebar-ring: #c9a84c;
 
   --font-heading: "Playfair Display", serif;
   --font-body: "Inter", sans-serif;
