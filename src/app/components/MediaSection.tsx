@@ -158,12 +158,18 @@ function MediaCard({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div
+      <a
+        href={venture.href}
+        target="_blank"
+        rel="noopener noreferrer"
         style={{
           position: "relative",
           display: "flex",
           flexDirection: isLarge ? undefined : "column",
           height: "100%",
+          width: "100%",
+          textDecoration: "none",
+          color: "inherit",
           background: hovered ? `rgba(${rgb}, 0.06)` : "rgba(240,235,216,0.022)",
           border: `1px solid ${hovered ? `rgba(${rgb}, 0.32)` : "rgba(201,168,76,0.1)"}`,
           clipPath: isRTL 
@@ -172,6 +178,7 @@ function MediaCard({
           transition: "background 0.4s ease, border-color 0.4s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1)",
           transform: hovered ? "translateY(-4px)" : "translateY(0)",
           textAlign: isRTL ? "right" : "left",
+          cursor: venture.href ? "pointer" : "default",
         }}
       >
         {/* Corner accents */}
@@ -360,7 +367,7 @@ function MediaCard({
           transformOrigin: "center",
           transition: "opacity 0.45s ease, transform 0.5s cubic-bezier(0.16,1,0.3,1)",
         }} />
-      </div>
+      </a>
     </div>
   );
 }
@@ -441,6 +448,7 @@ export default function MediaSection() {
       year: t("media.judi_year"),
       accentColor: "#C9A84C",
       size: "large",
+      href: "https://www.facebook.com/share/1AoKWUaniE/?mibextid=wwXIfr",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} className="w-5 h-5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M6 20.25h12m-7.5-3v3m3-3v3m-10.125-3h17.25c.621 0 1.125-.504 1.125-1.125V4.875c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125z" />
@@ -457,6 +465,7 @@ export default function MediaSection() {
       year: t("media.u2_year"),
       accentColor: "#8B7FD4",
       size: "small",
+      href: "https://www.facebook.com/share/18QjPwvKEb/?mibextid=wwXIfr",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} className="w-5 h-5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
@@ -473,6 +482,7 @@ export default function MediaSection() {
       year: t("media.speda_year"),
       accentColor: "#E8927C",
       size: "small",
+      href: "https://www.facebook.com/share/1XZVj12gEx/?mibextid=wwXIfr",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} className="w-5 h-5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-3-1.125V4.875c0-.621.504-1.125 1.125-1.125h15.75c.621 0 1.125.504 1.125 1.125v14.25m-20.25-.75h20.25" />
@@ -489,6 +499,7 @@ export default function MediaSection() {
       year: t("media.dialogue_year"),
       accentColor: "#5BA89A",
       size: "large",
+      href: "https://www.speda.net/program/530/",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.4} className="w-5 h-5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />

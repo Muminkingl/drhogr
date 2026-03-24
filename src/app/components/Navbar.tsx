@@ -6,11 +6,11 @@ import { useLanguage, type Locale } from "../i18n/LanguageContext";
 const navKeys = [
   { key: "nav.home", href: "#home" },
   { key: "nav.about", href: "#about" },
-  { key: "nav.qualifications", href: "#qualifications" },
+  { key: "nav.articles", href: "#qualifications" },
   { key: "nav.experience", href: "#experience" },
   { key: "nav.leadership", href: "#leadership" },
-  { key: "nav.media", href: "#media" },
-  { key: "nav.memberships", href: "#memberships" },
+  { key: "nav.program", href: "#media" },
+  { key: "nav.contact", href: "/contact" },
 ];
 
 const languages: { code: Locale; label: string; icon: string }[] = [
@@ -115,8 +115,10 @@ export default function Navbar() {
       { rootMargin: "-40% 0px -55% 0px" }
     );
     navKeys.forEach(({ href }) => {
-      const el = document.querySelector(href);
-      if (el) observer.observe(el);
+      if (href.startsWith("#")) {
+        const el = document.querySelector(href);
+        if (el) observer.observe(el);
+      }
     });
     return () => observer.disconnect();
   }, []);

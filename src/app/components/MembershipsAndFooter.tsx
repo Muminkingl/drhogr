@@ -481,12 +481,13 @@ export default function Footer() {
   const { t, isRTL, toLocalNum } = useLanguage();
 
   const footerLinksData = [
+    { label: t("footer.nav_home"), href: "#home" },
     { label: t("footer.nav_about"), href: "#about" },
-    { label: t("footer.nav_qualifications"), href: "#qualifications" },
+    { label: t("footer.nav_articles"), href: "#qualifications" },
     { label: t("footer.nav_experience"), href: "#experience" },
     { label: t("footer.nav_leadership"), href: "#leadership" },
-    { label: t("footer.nav_media"), href: "#media" },
-    { label: t("footer.nav_memberships"), href: "#memberships" },
+    { label: t("footer.nav_program"), href: "#media" },
+    { label: t("footer.nav_contact"), href: "/contact" },
   ];
 
   const credentialsData = [
