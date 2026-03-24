@@ -129,9 +129,8 @@ export default function HeroSection() {
 
       {/* ── MAIN CONTENT ── */}
       <div
-        className={`relative z-10 max-w-7xl mx-auto px-6 lg:px-16 w-full min-h-screen flex flex-col justify-end pb-16 lg:pb-24 pt-32 ${
-          isRTL ? "items-end" : "items-start"
-        }`}
+        className={`relative z-10 max-w-7xl mx-auto px-6 lg:px-16 w-full min-h-screen flex flex-col justify-end pb-16 lg:pb-24 pt-32 ${isRTL ? "items-end" : "items-start"
+          }`}
       >
         {/* ── Role / credential tags ── */}
         <div
@@ -274,9 +273,8 @@ export default function HeroSection() {
 
         {/* ── Bottom row: CTA + Socials ── */}
         <div
-          className={`flex flex-col sm:flex-row items-start sm:items-center gap-5 ${
-            isRTL ? "sm:flex-row-reverse" : ""
-          }`}
+          className={`flex flex-col sm:flex-row items-start sm:items-center gap-5 ${isRTL ? "sm:flex-row-reverse" : ""
+            }`}
           style={{
             opacity: visible ? 1 : 0,
             transform: visible ? "translateY(0)" : "translateY(16px)",
@@ -312,11 +310,10 @@ export default function HeroSection() {
             />
             <span className="relative z-10">{t("hero.cta_primary") || "Explore Profile"}</span>
             <svg
-              className={`w-3.5 h-3.5 relative z-10 transition-transform duration-200 ${
-                isRTL
+              className={`w-3.5 h-3.5 relative z-10 transition-transform duration-200 ${isRTL
                   ? "group-hover:-translate-x-1.5 rotate-180"
                   : "group-hover:translate-x-1.5"
-              }`}
+                }`}
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
