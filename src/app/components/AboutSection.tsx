@@ -133,9 +133,9 @@ const pillarNumbers = ["01", "02", "03", "04"];
 
 const statValues = [
   { value: 25, suffix: "+" },
-  { value: 3,  suffix: ""  },
-  { value: 3,  suffix: ""  },
-  { value: 4,  suffix: ""  },
+  { value: 3, suffix: "" },
+  { value: 3, suffix: "" },
+  { value: 4, suffix: "" },
 ];
 const statLabelKeys = ["about.stat1_label", "about.stat2_label", "about.stat3_label", "about.stat4_label"];
 
@@ -504,14 +504,14 @@ function StatsPanel({
               <StatRow
                 key={i}
                 label={t(statLabelKeys[i])}
-              value={value}
-              suffix={s.suffix}
-              inView={inView}
-              delay={500 + i * 120}
-              isLast={i === statValues.length - 1}
-              isRTL={isRTL}
-              toLocalNum={toLocalNum}
-            />
+                value={value}
+                suffix={s.suffix}
+                inView={inView}
+                delay={500 + i * 120}
+                isLast={i === statValues.length - 1}
+                isRTL={isRTL}
+                toLocalNum={toLocalNum}
+              />
             );
           })}
         </div>

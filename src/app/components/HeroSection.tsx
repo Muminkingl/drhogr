@@ -76,34 +76,39 @@ export default function HeroSection() {
     return () => clearTimeout(timer);
   }, [locale]);
 
+  const getBannerImage = () => {
+    switch (locale) {
+      case "ar": return "/herooA.png";
+      case "ku": return "/herooK.png";
+      case "en": default: return "/herooE.png";
+    }
+  };
+
   return (
     <section
       id="home"
       className="relative overflow-hidden"
-      style={{ minHeight: "100vh" }}
+      style={{ minHeight: "100svh" }}
     >
       {/* ── Full-screen background image ── */}
+      {/* Desktop: center-top, Mobile: show the person on the right (70% top) */}
       <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: "url('/heroo.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center top",
-          backgroundRepeat: "no-repeat",
-        }}
+        className="absolute inset-0 bg-cover bg-no-repeat bg-[70%_top] md:bg-[center_top]"
+        style={{ backgroundImage: `url('${getBannerImage()}')` }}
       />
 
       {/* ── Dark gradient overlays ── */}
+      {/* Bottom-to-top — heavier on mobile so text is readable */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(10,14,26,0.5) 0%, rgba(10,14,26,0.3) 35%, rgba(10,14,26,0.75) 70%, rgba(10,14,26,0.98) 100%)",
+            "linear-gradient(to bottom, rgba(10,14,26,0.6) 0%, rgba(10,14,26,0.45) 30%, rgba(10,14,26,0.8) 65%, rgba(10,14,26,0.98) 100%)",
         }}
       />
-      {/* Strong left overlay so text doesn't clash with background image text — always left side since photo is on the right */}
+      {/* Left overlay — desktop only (on mobile the full overlay is enough) */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 hidden md:block"
         style={{
           background:
             "linear-gradient(to right, rgba(10,14,26,0.9) 0%, rgba(10,14,26,0.65) 40%, rgba(10,14,26,0.2) 65%, transparent 85%)",
@@ -207,27 +212,19 @@ export default function HeroSection() {
           <h1
             style={{
               fontFamily: "'Georgia', 'Times New Roman', serif",
-              fontSize: "clamp(3rem, 8vw, 7rem)",
+              fontSize: locale === "en" ? "clamp(1.8rem, 4vw, 4.2rem)" : "clamp(2.5rem, 6vw, 6rem)",
               fontWeight: 700,
               lineHeight: 1.0,
               letterSpacing: "-0.02em",
               color: "rgba(240,235,216,0.96)",
               margin: 0,
               textShadow: "0 2px 40px rgba(10,14,26,0.6)",
+              whiteSpace: "nowrap", // ensures it stays on one line
             }}
           >
-            {t("hero.name_line1") || "Hogr"}
-            <br />
-            <span
-              style={{
-                color: "#C9A84C",
-                WebkitTextStroke: "0px",
-                textShadow:
-                  "0 0 60px rgba(201,168,76,0.35), 0 2px 40px rgba(10,14,26,0.6)",
-              }}
-            >
-              {t("hero.name_line2") || "Ghareeb"}
-            </span>
+            {[t("hero.name_line1"), t("hero.name_line2"), t("hero.name_line3")]
+              .filter(Boolean)
+              .join(" ")}
           </h1>
         </div>
 
