@@ -23,9 +23,13 @@
     "stat3_label": "Global Memberships",
     "cta_primary": "Explore Profile",
     "cta_secondary": "Media Work",
+    "tag_journalist": "Journalist",
+    "tag_founder": "Founder",
+    "follow": "Follow",
     "badge_label": "Expertise",
     "badge_text": "Comparative Islamic Jurisprudence · Media & Journalism · Social Reform",
     "university_tag": "Knowledge University",
+    "tag_phd": "PhD",
     "scroll": "Scroll"
   },
   "logo": {

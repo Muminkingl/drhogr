@@ -411,6 +411,15 @@ const socialLinks = [
       </svg>
     ),
   },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/@dr-hogrghareeb3887",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+        <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+      </svg>
+    ),
+  },
 ];
 
 /* ─────────────────────────────────────────────
@@ -535,24 +544,20 @@ export default function Footer() {
           {/* Brand block */}
           <div className="space-y-7">
 
-            {/* Avatar + name */}
-            <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-              <div style={{
-                width: "50px", height: "50px", flexShrink: 0,
-                borderRadius: "50%", overflow: "hidden",
-                border: "1px solid rgba(201,168,76,0.4)",
-                boxShadow: "0 2px 12px rgba(201,168,76,0.15)"
-              }}>
-                <img src="/image.png" alt="Avatar logo" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
-                <span style={{ fontFamily: "serif", fontSize: "1.05rem", fontWeight: 700, color: "#F0EBD8" }}>
-                  {t("footer.name")}
-                </span>
-                <span style={{ fontSize: "9px", letterSpacing: "0.3em", textTransform: "uppercase", fontFamily: "monospace", color: "rgba(201,168,76,0.55)", marginTop: "5px" }}>
-                  {t("footer.location")}
-                </span>
-              </div>
+            {/* Logo */}
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <a href="#home">
+                <img
+                  src="/textH.png"
+                  alt="Dr. Hogr Ghareeb Khidr"
+                  style={{
+                    height: "90px",
+                    width: "auto",
+                    objectFit: "contain",
+                    filter: "brightness(1.1)",
+                  }}
+                />
+              </a>
             </div>
 
             {/* Bio */}

@@ -168,27 +168,17 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16 lg:h-[72px]">
 
             {/* Logo mark */}
-            <a href="#home" className="flex items-center gap-3 group">
-              {/* Avatar Logo */}
-              <div
-                className="relative w-12 h-12 flex-shrink-0 transition-transform duration-300 group-hover:scale-105 rounded-full overflow-hidden border border-[#C9A84C]/40 shadow-[0_2px_12px_rgba(201,168,76,0.15)]"
-              >
-                <img src="/image.png" alt="Avatar logo" className="w-full h-full object-cover object-top" />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span
-                  className="font-serif text-base font-bold tracking-wide"
-                  style={{ color: "#F0EBD8" }}
-                >
-                  {t("logo.name")}
-                </span>
-                <span
-                  className="text-[9px] tracking-[0.3em] uppercase font-mono"
-                  style={{ color: "rgba(201,168,76,0.7)" }}
-                >
-                  {t("logo.subtitle")}
-                </span>
-              </div>
+            <a href="#home" className="flex items-center group">
+              <img
+                src="/textH.png"
+                alt="Dr. Hogr Ghareeb Khidr"
+                className="transition-transform duration-300 group-hover:scale-105 h-14 sm:h-16 lg:h-[80px]"
+                style={{
+                  width: "auto",
+                  objectFit: "contain",
+                  filter: "brightness(1.1)",
+                }}
+              />
             </a>
 
             {/* Desktop nav */}
